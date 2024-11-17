@@ -1,43 +1,43 @@
 ---
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 // Import necessary components, modules and types
-import MainLayout from "@/layouts/MainLayout.astro";
-import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
-import CardInsight from "@components/ui/cards/CardInsight.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import MainLayout from "@/layouts/MainLayout.astro"
+import CardBlog from "@components/ui/cards/CardBlog.astro"
+import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro"
+import CardInsight from "@components/ui/cards/CardInsight.astro"
+import { SITE } from "@data/constants"
 
 // Get all blogs post in French and sort them based on publish date
 
 const frenchBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("fr/");
-});
+	return id.startsWith("fr/")
+})
 
 const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("fr/");
-});
+	return id.startsWith("fr/")
+})
 
 const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-    b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+	(a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+		b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = frenchInsightsEntries;
+const insightPosts: CollectionEntry<"insights">[] = frenchInsightsEntries
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0]
+const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1)
 
 // Define variables for page content
-const title: string = "Votre Passerelle vers l'Excellence en Construction";
+const title: string = "Votre Passerelle vers l'Excellence en Construction"
 const subTitle: string =
-  "Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction.";
-const secondTitle: string = "Perspectives";
+	"Explorez les dernières actualités, astuces et analyses de ScrewFast pour améliorer vos projets de construction. Des mises en avant de produits aux stratégies de gestion de projet, notre blog est votre ressource incontournable pour tout ce qui concerne les outils et la construction."
+const secondTitle: string = "Perspectives"
 const secondSubTitle: string =
-  "Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast.";
+	"Restez à jour avec les dernières tendances et évolutions de l'industrie de la construction grâce aux analyses de l'équipe d'experts de ScrewFast."
 
-const pageTitle: string = `Blog | ${SITE.title}`;
+const pageTitle: string = `Blog | ${SITE.title}`
 ---
 
 <MainLayout lang="fr"

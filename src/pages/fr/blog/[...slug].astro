@@ -1,43 +1,43 @@
 ---
+import { Image } from "astro:assets"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 // Import necessary components and utilities
-import MainLayout from "@/layouts/MainLayout.astro";
-import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
-import CardRelated from "@components/ui/cards/CardRelated.astro";
-import Bookmark from "@components/ui/buttons/Bookmark.astro";
-import SocialShare from "@components/ui/buttons/SocialShare.astro";
-import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
-import { Image } from "astro:assets";
-import { capitalize, formatDate } from "@utils/utils";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
+import MainLayout from "@/layouts/MainLayout.astro"
+import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro"
+import Bookmark from "@components/ui/buttons/Bookmark.astro"
+import SocialShare from "@components/ui/buttons/SocialShare.astro"
+import CardRelated from "@components/ui/cards/CardRelated.astro"
+import PostFeedback from "@components/ui/feedback/PostFeedback.astro"
+import { SITE } from "@data/constants"
+import { capitalize, formatDate } from "@utils/utils"
 
 // Update getStaticPaths for French posts
 export async function getStaticPaths() {
-  const blogPosts = await getCollection("blog", ({ id }) =>
-    id.startsWith("fr/")
-  );
-  return blogPosts.map((post) => {
-    const slugWithoutLang = post.slug.replace(/^fr\//, ""); // Remove the "fr/" prefix
-    return {
-      params: { lang: "fr", slug: slugWithoutLang },
-      props: { post },
-    };
-  });
+	const blogPosts = await getCollection("blog", ({ id }) =>
+		id.startsWith("fr/")
+	)
+	return blogPosts.map((post) => {
+		const slugWithoutLang = post.slug.replace(/^fr\//, "") // Remove the "fr/" prefix
+		return {
+			params: { lang: "fr", slug: slugWithoutLang },
+			props: { post }
+		}
+	})
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props
 
 // Fetch related posts
 const blogPosts: CollectionEntry<"blog">[] = await getCollection(
-  "blog",
-  ({ id }) => id.startsWith("fr/")
-);
+	"blog",
+	({ id }) => id.startsWith("fr/")
+)
 const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
-  (blogEntry) => blogEntry.slug !== post.slug
-);
+	(blogEntry) => blogEntry.slug !== post.slug
+)
 
-const pageTitle: string = `${post.data.title} | ${SITE.title}`;
+const pageTitle: string = `${post.data.title} | ${SITE.title}`
 ---
 
 <MainLayout title={pageTitle}>

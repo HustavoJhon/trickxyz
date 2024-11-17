@@ -1,37 +1,37 @@
 ---
+import { Image } from "astro:assets"
+import { getCollection } from "astro:content"
 // Import section components
-import MainLayout from "@/layouts/MainLayout.astro";
-import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { SITE } from "@data/constants";
+import MainLayout from "@/layouts/MainLayout.astro"
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro"
+import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro"
+import { SITE } from "@data/constants"
 
 // Global declaration for gsap animation library
 declare global {
-  interface Window {
-    gsap: any;
-  }
+	interface Window {
+		gsap: any
+	}
 }
 
 // This gets the static paths for all the unique products
 
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products", ({ id }) =>
-    id.startsWith("en/")
-  );
-  return productEntries.map((product) => {
-    const slugWithoutLang = product.slug.replace(/^en\//, ""); // Remove the "en/" prefix
-    return {
-      params: { slug: slugWithoutLang },
-      props: { product },
-    };
-  });
+	const productEntries = await getCollection("products", ({ id }) =>
+		id.startsWith("en/")
+	)
+	return productEntries.map((product) => {
+		const slugWithoutLang = product.slug.replace(/^en\//, "") // Remove the "en/" prefix
+		return {
+			params: { slug: slugWithoutLang },
+			props: { product }
+		}
+	})
 }
 
-const { product } = Astro.props;
+const { product } = Astro.props
 
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
+const pageTitle: string = `${product.data.title} | ${SITE.title}`
 ---
 
 <MainLayout title={pageTitle}>

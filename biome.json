@@ -9,7 +9,7 @@
     "enabled": true,
     "indentStyle": "tab",
     "indentWidth": 2,
-    "ignore": [".vscode/"]
+    "ignore": [".vscode/", ".astro/**"]
   },
   "javascript": {
     "formatter": {
@@ -29,6 +29,6 @@
         "noExplicitAny": "off"
       }
     },
-    "ignore": [".vscode/"]
+    "ignore": [".vscode/", ".astro/**"]
   }
 }

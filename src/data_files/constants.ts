@@ -1,14 +1,14 @@
 import ogImageSrc from "@images/social.png";
 
 export const SITE = {
-  title: "ScrewFast",
-  tagline: "Top-quality Hardware Tools",
+  title: "TrickXYZ",
+  tagline: "Tutores expertos para tu éxito universitario",
   description:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+    "TrickXYZ conecta a estudiantes con tutores especializados que te guiarán en las materias clave de la universidad. Ofrecemos una experiencia educativa accesible, confiable y diseñada para impulsar tu aprendizaje. ¡Comienza ahora y alcanza tus objetivos académicos!",
   description_short:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    "TrickXYZ conecta estudiantes con tutores expertos para triunfar en la universidad.",
   url: "https://screwfast.uk",
-  author: "Emil Gulamov",
+  author: "@hustavojhon, @yupanquidev",
 };
 
 export const SEO = {
@@ -17,7 +17,7 @@ export const SEO = {
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    inLanguage: "en-US",
+    inLanguage: "es-ES",
     "@id": SITE.url,
     url: SITE.url,
     name: SITE.title,
@@ -32,11 +32,11 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "es_ES",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
+  title: `${SITE.title}: : Capacitar a estudiantes en habilidades prácticas y conocimientos técnicos`,
   description:
-    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+    "Transforma tu aprendizaje con TrickXYZ: una plataforma educativa donde tutores expertos te guían en temas universitarios clave. Diseñada para ofrecer accesibilidad, confiabilidad y una experiencia centrada en el estudiante. ¡Empieza a dominar tus materias hoy mismo!",
   image: ogImageSrc,
 };

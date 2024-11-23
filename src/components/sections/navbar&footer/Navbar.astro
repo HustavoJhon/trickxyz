@@ -1,12 +1,9 @@
 ---
-import BrandLogo from "@components/BrandLogo.astro"
-//Import relevant dependencies
+import Logo from "@/icons/Logo.astro"
 import ThemeIcon from "@components/ThemeIcon.astro"
-import LanguagePicker from "@components/ui/LanguagePicker.astro"
 import NavLink from "@components/ui/links/NavLink.astro"
 import frStrings from "@utils/fr/navigation.ts"
 import enStrings from "@utils/navigation.ts"
-import Authentication from "../misc/Authentication.astro"
 
 // Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings
@@ -29,7 +26,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/"
         href={homeUrl}
         aria-label="Brand"
       >
-        <BrandLogo class="h-auto w-24" />
+        <Logo size={40} class="p-1" />
       </a>
       <!-- Collapse toggle for smaller screens -->
       <div class="ml-auto mr-5 md:hidden">
@@ -86,9 +83,11 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/"
         class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 lg:gap-x-7 md:gap-y-0 md:ps-7"
       >
         <!-- Navigation links and Authentication component -->
-        {strings.navBarLinks.map(link => (
-          <NavLink url={link.url} name={link.name} />
-        ))}
+        {
+          strings.navBarLinks.map((link) => (
+            <NavLink url={link.url} name={link.name} />
+          ))
+        }
 
         <!-- ThemeIcon component specifically for larger screens -->
         <span class="hidden md:inline-block">

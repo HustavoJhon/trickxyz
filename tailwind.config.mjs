@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import colors from "tailwindcss/colors"
+import colors from "tailwindcss/colors";
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -30,17 +30,17 @@ export default {
         600: "#ea580c",
       }, // Primary colors, used mainly for links, buttons and svg icons
       purple: {
-        '50': '#faf6fe',
-        '100': '#f2ebfc',
-        '200': '#e7dafa',
-        '300': '#d5bdf5',
-        '400': '#bc93ed',
-        '500': '#a16ae2',
-        '600': '#8b4ad3',
-        '700': '#7638b8',
-        '800': '#663399',
-        '900': '#522a79',
-        '950': '#371358',
+        50: "#faf6fe",
+        100: "#f2ebfc",
+        200: "#e7dafa",
+        300: "#d5bdf5",
+        400: "#bc93ed",
+        500: "#a16ae2",
+        600: "#8b4ad3",
+        700: "#7638b8",
+        800: "#663399",
+        900: "#522a79",
+        950: "#371358",
       },
       red: colors.red, // Used for bookmark icon
       zinc: colors.zinc, // Used mainly for box-shadow
@@ -52,4 +52,4 @@ export default {
     require("preline/plugin"),
     require("@tailwindcss/forms"),
   ],
-}
+};

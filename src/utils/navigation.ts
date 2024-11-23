@@ -9,20 +9,20 @@ const navBarLinks = [
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Ecosistema",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Recursos", url: "/welcome-to-docs/" },
+      { name: "Tutorias", url: "/products" },
+      { name: "Servicios", url: "/services" },
     ],
   },
   {
-    section: "Company",
+    section: "Empresa",
     links: [
-      { name: "About us", url: "#" },
+      { name: "Sobre nosotros", url: "#" },
       { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Cursos", url: "#" },
+      { name: "Profesores", url: "#" },
     ],
   },
 ];

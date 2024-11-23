@@ -1,5 +1,5 @@
 ---
-import BrandLogo from "@components/BrandLogo.astro"
+import Logo from "@/icons/Logo.astro"
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro"
 import Icon from "@components/ui/icons/Icon.astro"
 // Import the necessary dependencies
@@ -19,7 +19,7 @@ const sectionThreeContent: string =
 		? "Restez informé des derniers outils et des offres exclusives."
 		: "Stay updated with the latest tools and exclusive deals."
 const crafted: string =
-	Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by"
+	Astro.currentLocale === "fr" ? "Fabriqué par" : "Creado por"
 ---
 
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
@@ -29,7 +29,7 @@ const crafted: string =
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
         <!-- Brand Logo -->
-        <BrandLogo class="h-auto w-32" />
+        <Logo size={50} class="h-auto" />
       </div>
       <!-- An array of links for Product and Company sections -->
       {
@@ -48,7 +48,7 @@ const crafted: string =
                     {link.name}
                   </a>
                   {section.section === "Company" && index === 2 ? (
-                    <span class="ms-1 inline rounded-lg bg-orange-500 px-2 py-1 text-xs font-bold text-neutral-50">
+                    <span class="ms-1 inline rounded-lg bg-purple-600 px-2 py-1 text-xs font-bold text-neutral-50">
                       We're hiring!
                     </span>
                   ) : null}
@@ -78,12 +78,19 @@ const crafted: string =
     >
       <div class="flex items-center justify-between">
         <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © <span id="current-year"></span> {SITE.title}. {crafted}
+          © <span id="current-year"></span>
+          {SITE.title}. {crafted}
           <a
             class="rounded-lg font-medium underline underline-offset-2 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
-            href="https://www.gulamoff.dev/"
+            href="https://github.com/hustavojhon"
             target="_blank"
-            rel="noopener noreferrer">gulamoff</a
+            rel="noopener noreferrer">@hustavojhon</a
+          > &
+          <a
+            class="rounded-lg font-medium underline underline-offset-2 outline-none ring-zinc-500 transition duration-300 hover:text-neutral-700 hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
+            href="https://github.com/yupanquidev"
+            target="_blank"
+            rel="noopener noreferrer">@yupanquidev</a
           >.
         </p>
       </div>
@@ -93,21 +100,8 @@ const crafted: string =
         <FooterSocialLink url={strings.socialLinks.facebook}
           ><Icon name="facebookFooter" />
         </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.x}
-          ><Icon name="xFooter" /></FooterSocialLink
-        >
-
         <FooterSocialLink url={strings.socialLinks.github}
           ><Icon name="githubFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.google}
-          ><Icon name="googleFooter" />
-        </FooterSocialLink>
-
-        <FooterSocialLink url={strings.socialLinks.slack}
-          ><Icon name="slackFooter" />
         </FooterSocialLink>
       </div>
     </div>

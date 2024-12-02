@@ -5,6 +5,9 @@ import FooterSection from "@components/sections/navbar&footer/FooterSection.astr
 import Navbar from "@components/sections/navbar&footer/Navbar.astro"
 import { SITE } from "@data/constants"
 
+import "@fontsource-variable/onest"
+import "@fontsource/poppins"
+
 // Setting expected props
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props
 
@@ -57,16 +60,30 @@ We set the language of the page to English and add classes for scrollbar and scr
       </main>
     </div>
     <FooterSection />
-    <style>
-      /* CSS rules for the page scrollbar */
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
   </body>
 </html>
+
+<style is:global>
+  /* CSS rules for the page scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  body {
+    font-family: "Onest Variable";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins";
+  }
+</style>
